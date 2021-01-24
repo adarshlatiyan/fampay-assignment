@@ -1,0 +1,3 @@
+include ':DynamicUi'
+include ':app'
+rootProject.name = "Fampay demo"

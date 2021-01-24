@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/sdp360"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/sdp8"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="@dimen/sdp12">
+
+        <LinearLayout
+            android:id="@+id/linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_marginVertical="@dimen/sdp8"
+            android:layout_marginStart="@dimen/sdp20"
+            android:layout_marginEnd="@dimen/sdp32"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.adarsh.dynamicui.util.AspectRatioImageView
+                android:id="@+id/iv_icon"
+                android:layout_width="@dimen/sdp32"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/sdp12"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/ssp14"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/sdp12"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/ssp12" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</FrameLayout>
