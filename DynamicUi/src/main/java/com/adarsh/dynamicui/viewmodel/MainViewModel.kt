@@ -30,31 +30,12 @@ class MainViewModel(private val app: Application) : AndroidViewModel(app) {
                     }
                 }
                 UiStateEvent.None -> return@launch
-                UiStateEvent.FetchLocal -> {
-//                    TODO check this
-                    if (!getJson().isNullOrEmpty()) withContext(viewModelScope.coroutineContext) {
-                        _dataState.value = DataState.Loading
-                        delay(1000)
-                        val i = Random.nextInt(10)
-                        Log.d("TAG", "setStateEvent: $i")
-                        if (i % 4 == 0) _dataState.value = DataState.Failure(Exception(""))
-                        else _dataState.value = DataState.Success(
-                            GsonBuilder().create().fromJson(getJson(), UiResponse::class.java)
-                        )
-                    }
-                }
             }
         }
     }
 
-    private fun getJson(): String? {
-        val inputStream = app.applicationContext.assets.open("json.txt")
-        return inputStream.bufferedReader().use { it.readText() }
-    }
-
     sealed class UiStateEvent {
         object FetchEvent : UiStateEvent()
-        object FetchLocal : UiStateEvent()
         object None : UiStateEvent()
     }
 }

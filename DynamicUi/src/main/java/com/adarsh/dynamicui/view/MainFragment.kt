@@ -44,7 +44,7 @@ class MainFragment : Fragment(R.layout.fragment_main), CardsGroupAdapter.Interac
         binding.root.setOnRefreshListener(this)
 
         subscribeToViewModel()
-        viewModel.setStateEvent(MainViewModel.UiStateEvent.FetchLocal)
+        viewModel.setStateEvent(MainViewModel.UiStateEvent.FetchEvent)
 
         binding.mainRecyclerView.apply {
             layoutManager =
@@ -69,7 +69,6 @@ class MainFragment : Fragment(R.layout.fragment_main), CardsGroupAdapter.Interac
                 }
                 DataState.Loading -> {
                     showLoading()
-                    hideError()
                 }
             }
         }
@@ -114,6 +113,6 @@ class MainFragment : Fragment(R.layout.fragment_main), CardsGroupAdapter.Interac
     }
 
     override fun onRefresh() {
-        viewModel.setStateEvent(MainViewModel.UiStateEvent.FetchLocal)
+        viewModel.setStateEvent(MainViewModel.UiStateEvent.FetchEvent)
     }
 }
