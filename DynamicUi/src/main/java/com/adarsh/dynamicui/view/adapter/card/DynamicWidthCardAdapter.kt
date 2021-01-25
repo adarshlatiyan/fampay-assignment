@@ -13,7 +13,6 @@ class DynamicWidthCardAdapter(private val height: Int?) :
     CardAdapter<DynamicWidthCardAdapter.DynamicWidthCardViewHolder>() {
     private val differ = AsyncListDiffer(this, diffCallback)
 
-    var interactionListener: CardsGroupAdapter.InteractionListener? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DynamicWidthCardViewHolder {
         val binding = CardItemDynamicWidthBinding.inflate(LayoutInflater.from(parent.context))
         return DynamicWidthCardViewHolder(binding)

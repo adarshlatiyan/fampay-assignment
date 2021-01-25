@@ -1,20 +1,17 @@
 package com.adarsh.dynamicui.view.adapter.card
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.RecyclerView
 import com.adarsh.dynamicui.databinding.CardItemSmallWithArrowBinding
 import com.adarsh.dynamicui.model.Card
-import com.adarsh.dynamicui.util.*
-import com.adarsh.dynamicui.view.adapter.CardsGroupAdapter
+import com.adarsh.dynamicui.util.setCardData
 
 class SmallWithArrowCardAdapter :
     CardAdapter<SmallWithArrowCardAdapter.SmallWithArrowCardViewHolder>() {
     private val differ = AsyncListDiffer(this, diffCallback)
 
-    var interactionListener: CardsGroupAdapter.InteractionListener? = null
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int

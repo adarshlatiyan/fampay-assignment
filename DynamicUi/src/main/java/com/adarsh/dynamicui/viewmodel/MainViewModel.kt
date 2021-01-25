@@ -1,19 +1,14 @@
 package com.adarsh.dynamicui.viewmodel
 
-import android.app.Application
-import android.util.Log
 import androidx.lifecycle.*
 import com.adarsh.dynamicui.model.UiResponse
 import com.adarsh.dynamicui.repository.MainRepository
 import com.adarsh.dynamicui.util.DataState
-import com.google.gson.GsonBuilder
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import kotlin.random.Random
 
-class MainViewModel(private val app: Application) : AndroidViewModel(app) {
+class MainViewModel : ViewModel() {
     private val repository = MainRepository()
 
     private val _dataState = MutableLiveData<DataState<UiResponse>>()

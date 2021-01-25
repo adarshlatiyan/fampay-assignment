@@ -7,15 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.adarsh.dynamicui.databinding.CardItemBigDisplayBinding
 import com.adarsh.dynamicui.model.Card
 import com.adarsh.dynamicui.util.setCardData
-import com.adarsh.dynamicui.view.adapter.CardsGroupAdapter
 
-class BigDisplayCardAdapter() : CardAdapter<BigDisplayCardAdapter.BigDisplayCardViewHolder>() {
-    companion object {
-        private const val TAG = "BigDisplayCardAdapter"
-    }
-
-    var remindLaterFun : (card: Card) -> Unit = {}
-    var dismissFun : (card: Card) -> Unit = {}
+class BigDisplayCardAdapter : CardAdapter<BigDisplayCardAdapter.BigDisplayCardViewHolder>() {
+    var remindLaterFun: (card: Card) -> Unit = {}
+    var dismissFun: (card: Card) -> Unit = {}
 
     private val differ = AsyncListDiffer(this, diffCallback)
 

@@ -15,15 +15,9 @@ import com.adarsh.dynamicui.util.DataState
 import com.adarsh.dynamicui.util.PrefsHelper
 import com.adarsh.dynamicui.view.adapter.CardsGroupAdapter
 import com.adarsh.dynamicui.viewmodel.MainViewModel
-import java.io.BufferedReader
-import java.io.InputStreamReader
 
 class MainFragment : Fragment(R.layout.fragment_main), CardsGroupAdapter.InteractionListener,
     SwipeRefreshLayout.OnRefreshListener {
-    companion object {
-        private const val TAG = "MainFragment"
-    }
-
     private lateinit var uiResponse: UiResponse
 
     private val viewModel by lazy {
@@ -65,7 +59,7 @@ class MainFragment : Fragment(R.layout.fragment_main), CardsGroupAdapter.Interac
                 }
                 is DataState.Failure -> {
                     hideLoading()
-                    showError(it.exception)
+                    showError()
                 }
                 DataState.Loading -> {
                     showLoading()
@@ -82,7 +76,7 @@ class MainFragment : Fragment(R.layout.fragment_main), CardsGroupAdapter.Interac
         binding.root.isRefreshing = true
     }
 
-    private fun showError(e: Exception) {
+    private fun showError() {
         binding.mainRecyclerView.visibility = View.GONE
         binding.tvError.visibility = View.VISIBLE
     }
